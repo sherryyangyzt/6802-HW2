@@ -2,13 +2,20 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
+name_flag = 0
+name=""
+
 @app.route("/",methods=["GET","POST"])
 def index():
     return(render_template("index.html"))
 
 @app.route("/main",methods=["GET","POST"])
 def main():
-    name=request.form.get("name")    
+    global name_flag,name
+    if name_flag==0:        
+        name=request.form.get("name")    
+        name_flag=1
+        
     return(render_template("main.html",name=name))
 
 @app.route("/ethical_test",methods=["GET","POST"])
