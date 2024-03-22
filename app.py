@@ -66,7 +66,7 @@ def answer():
 
 @app.route("/food_exp",methods=["GET","POST"])
 def food_exp():    
-    return(render_template("food_exp.html",r=r))
+    return(render_template("food_exp.html"))
 
 @app.route("/prediction",methods=["GET","POST"])
 def prediction():   
